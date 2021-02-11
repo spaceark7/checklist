@@ -15,22 +15,21 @@ const Register = () => {
       password: password,
       username: uname,
     })
-    try {
-      console.log(data)
-      const result = axios
-        .post('http://18.139.50.74:8080/register', {
-          email: email,
-          password: password,
-          username: uname,
-        })
-        .then((res) => {
-          console.log(res)
-          console.log(res.data)
-        })
-      console.log(result)
-    } catch (error) {
-      console.error(error.message)
-    }
+
+    console.log(data)
+    axios
+      .post('http://18.139.50.74:8080/register', {
+        email: email,
+        password: password,
+        username: uname,
+      })
+      .then((res) => {
+        console.log(res)
+        console.log(res.data)
+      })
+      .catch((error) => {
+        console.log(error.message)
+      })
   }
   return (
     <Form onSubmit={handleSubmit}>

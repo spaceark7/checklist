@@ -2,8 +2,15 @@ import { Container, Row, Col } from 'react-bootstrap'
 import HomePage from './components/HomePage'
 import Register from './components/Register'
 import Login from './components/Login'
+import { useState, useEffect } from 'react'
 
 function App() {
+  const [userState, setUserState] = useState('')
+  useEffect(() => {
+    const data = localStorage.getItem('authToken')
+    setUserState(data)
+  }, [])
+
   return (
     <div className='App'>
       <div className='Header'>
@@ -19,7 +26,16 @@ function App() {
             <Login />
           </Col>
         </Row>
-        <HomePage />
+        {userState ? (
+          <HomePage />
+        ) : (
+          <Row
+            className='text-center d-flex align-items-center'
+            style={{ height: '50vh' }}
+          >
+            <h2>Silahkan Login atau daftar</h2>
+          </Row>
+        )}
       </Container>
     </div>
   )

@@ -9,8 +9,6 @@ const Register = () => {
   const [password, setpassword] = useState()
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-
     console.log(data)
     axios
       .post('http://18.139.50.74:8080/login', {
