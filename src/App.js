@@ -11,11 +11,11 @@ function App() {
       </div>
       <Container>
         <Row>
-          <Col lg={3} md={3}>
+          <Col lg={6} md={6}>
             <Register />
           </Col>
 
-          <Col lg={3} md={3}>
+          <Col lg={6} md={6}>
             <Login />
           </Col>
         </Row>

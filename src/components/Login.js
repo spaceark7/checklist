@@ -10,20 +10,18 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    try {
-      console.log(data)
-      const result = axios
-        .post('http://18.139.50.74:8080/login', {
-          password: password,
-          username: uname,
-        })
-        .then((res) => {
-          localStorage.setItem('authToken', JSON.stringify(res.data.data.token))
-          console.log(res.data.data.token)
-        })
-    } catch (error) {
-      console.error(error.message)
-    }
+
+    console.log(data)
+    axios
+      .post('http://18.139.50.74:8080/login', {
+        password: password,
+        username: uname,
+      })
+      .then((res) => {
+        localStorage.setItem('authToken', JSON.stringify(res.data.data.token))
+        console.log(res.data.data.token)
+      })
+      .catch(console.log)
   }
   return (
     <Form onSubmit={handleSubmit}>
