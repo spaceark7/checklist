@@ -9,8 +9,6 @@ const InputCard = () => {
     },
   }
   const handleSubmit = (e) => {
-    e.preventDefault()
-
     axios
       .post(
         'http://18.139.50.74:8080/checklist',

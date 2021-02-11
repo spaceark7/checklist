@@ -16,6 +16,7 @@ const HomePage = () => {
     axios
       .get('http://18.139.50.74:8080/checklist', config)
       .then((res) => {
+        console.log('mainpage', res.data.data.id)
         setArray(res.data.data)
       })
       .catch((error) => {
@@ -25,14 +26,18 @@ const HomePage = () => {
 
   return (
     <Row className='d-flex flex-wrap align-items-center my-5'>
-      <Col>
+      <Col lg={12} md={12}>
         <InputCard />
       </Col>
-      <Col>
-        {array.map((item) => {
-          return <CheckListCard data={array} />
-        })}
-      </Col>
+
+      {array.map((item) => {
+        console.log(item.id)
+        return (
+          <Col className='mh-20 min-vh-20' key={item.id} md={3} sm={3} lg={3}>
+            <CheckListCard data={item} />
+          </Col>
+        )
+      })}
     </Row>
   )
 }
