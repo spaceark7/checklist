@@ -1,4 +1,5 @@
 Register & Login berhasil
 
-Not completed
-Create Data /item internal server error 500
+Create Data /checklist OK
+Request data /checklist getAll
+OUTPUT Data not completed
