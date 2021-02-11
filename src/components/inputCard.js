@@ -5,31 +5,26 @@ const InputCard = () => {
   const [task, setTask] = useState('')
   const config = {
     headers: {
-      authorization: `Bearer ${JSON.parse(localStorage.getItem('authToken'))}`,
+      authorization: `Bearer ${localStorage.getItem('authToken')}`,
     },
   }
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    try {
-      axios
-        .post(
-          'http://18.139.50.74:8080/item',
-          {
-            id: 4,
-            itemName: task,
-          },
-          config
-        )
-        .then((res) => {
-          console.log(res)
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-    } catch (error) {
-      console.error(error.message)
-    }
+    axios
+      .post(
+        'http://18.139.50.74:8080/item',
+        {
+          name: task,
+        },
+        config
+      )
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((error) => {
+        console.log(error.message)
+      })
   }
   return (
     <Card>

@@ -18,8 +18,8 @@ const Register = () => {
         username: uname,
       })
       .then((res) => {
-        localStorage.setItem('authToken', JSON.stringify(res.data.data.token))
-        console.log(res.data.data.token)
+        localStorage.setItem('authToken', res.data.data.token)
+        console.log(res.data)
       })
       .catch(console.log)
   }
