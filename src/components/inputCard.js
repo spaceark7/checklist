@@ -13,7 +13,7 @@ const InputCard = () => {
 
     axios
       .post(
-        'http://18.139.50.74:8080/item',
+        'http://18.139.50.74:8080/checklist',
         {
           name: task,
         },
